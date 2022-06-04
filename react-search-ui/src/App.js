@@ -21,14 +21,10 @@ function Hit ({ hit }) {
 
   return (
   <article>
-    <h3>{hit.username}</h3>
     <img src={hit.avatar} alt={hit.username} />
-    <p>
-     {hit.bio}
-    </p>
-    <p>
-      <Highlight attribute="username" hit={hit} />
-    </p>
+    <h1> <Highlight attribute="username" hit={hit} /> </h1>
+    <p><strong>Email:</strong> {hit.email}</p>
+    <p><strong>Bio:</strong>  {hit.bio}</p>   
   </article>
   );
 }
@@ -45,8 +41,7 @@ const App = () => {
 
       <PoweredBy  style={{justifyContent:"right", margin:"auto", width:"40%"}} />
 
-
-      <Hits hitComponent={Hit}  style={{  margin:"auto", width:"40%"}}/>
+      <Hits hitComponent={Hit}  style={{  margin:"auto", width:"40%",  borderStyle: "solid", borderWidth: "medium"}}/>
 
       </InstantSearch>
     </div>
