@@ -17,26 +17,26 @@ const searchClient = algoliasearch(
 
 
 function Hit ({ hit }) {
+
+
   return (
-    <article>
-      <h3>{hit.username}</h3>
-      <img src={hit.avatar} alt={hit.username} />
-      <p>
-        <Highlight attribute="username" hit={hit} />
-      </p>
-    </article>
+  <article>
+    <h3>{hit.username}</h3>
+    <img src={hit.avatar} alt={hit.username} />
+    <p>
+     {hit.bio}
+    </p>
+    <p>
+      <Highlight attribute="username" hit={hit} />
+    </p>
+  </article>
   );
 }
-
-//Handle no results
-
-
-
-//Handle empty query
 
 
 const App = () => {
   return (
+    <div>
     <InstantSearch searchClient={searchClient} indexName='users' >
 
       <h3 style={{ margin:"auto",textAlign:"center", width:"40%",marginTop:"100px", marginBottom:"10px"}} >Algolia Firebase Search</h3>
@@ -46,10 +46,10 @@ const App = () => {
       <PoweredBy  style={{justifyContent:"right", margin:"auto", width:"40%"}} />
 
 
-<Hits hitComponent={Hit} />
+      <Hits hitComponent={Hit}  style={{  margin:"auto", width:"40%"}}/>
 
-     
-    </InstantSearch>
+      </InstantSearch>
+    </div>
   );
 }
 
