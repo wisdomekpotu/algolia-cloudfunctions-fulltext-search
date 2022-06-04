@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css"
 import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
@@ -17,8 +18,6 @@ const searchClient = algoliasearch(
 
 
 function Hit ({ hit }) {
-
-
   return (
   <article>
     <img src={hit.avatar} alt={hit.username} />
@@ -33,15 +32,15 @@ function Hit ({ hit }) {
 const App = () => {
   return (
     <div>
-    <InstantSearch searchClient={searchClient} indexName='users' >
+    <InstantSearch searchClient={searchClient} indexName='users'>
 
-      <h3 style={{ margin:"auto",textAlign:"center", width:"40%",marginTop:"100px", marginBottom:"10px"}} >Algolia Firebase Search</h3>
+      <h3 className='title'>Algolia Firebase Search</h3>
 
-      <SearchBox autoFocus placeholder='Search...' style={{marginTop:"1px",  margin:"auto", width:"40%"}} />
+      <SearchBox autoFocus placeholder='Search...' className='searchbox'/>
 
-      <PoweredBy  style={{justifyContent:"right", margin:"auto", width:"40%"}} />
+      <PoweredBy className='poweredby'/>
 
-      <Hits hitComponent={Hit}  style={{  margin:"auto", width:"40%",  borderStyle: "solid", borderWidth: "medium"}}/>
+      <Hits hitComponent={Hit} className="hits"/>
 
       </InstantSearch>
     </div>
